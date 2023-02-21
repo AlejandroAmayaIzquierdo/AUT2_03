@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AUT2_03</string>
+    <string name="add">ADD</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="user">User</string>
+    <string name="games">games</string>
+</resources>
