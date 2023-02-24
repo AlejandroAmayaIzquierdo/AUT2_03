@@ -1,8 +1,10 @@
 package com.example.aut2_03;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,6 +33,15 @@ public class UserSimpleAdapter extends RecyclerView.Adapter<UserRowView> {
         User item = itemList.get(position);
         holder.nameText.setText(item.getName());
         holder.emailText.setText(item.getEmail());
+
+        holder.itemView.findViewById(R.id.remove).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), item.getName(), Toast.LENGTH_SHORT).show();
+                MainActivity.db.removeUser(item.getName());
+                MainActivity.adapter.notifyDataSetChanged();
+            }
+        });
     }
 
     @Override

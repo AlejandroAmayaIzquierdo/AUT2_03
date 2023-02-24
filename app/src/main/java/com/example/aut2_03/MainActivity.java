@@ -20,6 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static DataBaseHandler db;
+    public static UserSimpleAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,15 +35,22 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout container = findViewById(R.id.RecycleContainer);
         RecyclerView recyclerView = container.findViewById(R.id.dataBaseItems);
 
-        List<User> userList = new ArrayList<>();
-        userList.add(new User("John Doe", "john.doe@example.com"));
-        UserSimpleAdapter adapter = new UserSimpleAdapter(userList);
+        db = new DataBaseHandler(this);
+        /*
+        db.insertData("alejandro@gmail.com","ale");
+        db.insertData("fran@gmail.com","fran");
+        db.insertData("juan@gmail.com","juan");
+        db.insertData("test@gmail.com","test");
+
+         */
+        adapter = new UserSimpleAdapter(db.getUsers());
+
+
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         FloatingActionsMenu menuFab = findViewById(R.id.multiple_actions);
         FloatingActionButton userFab = findViewById(R.id.fab_users);
-        int test;
 
         userFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,5 +61,19 @@ public class MainActivity extends AppCompatActivity {
                 menuFab.collapse();
             }
         });
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        MainActivity.db.close();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MainActivity.db.close();
     }
 }
