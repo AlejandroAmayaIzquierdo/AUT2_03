@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         FloatingActionsMenu menuFab = findViewById(R.id.multiple_actions);
         FloatingActionButton userFab = findViewById(R.id.fab_users);
-
+        int test;
 
         userFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +51,5 @@ public class MainActivity extends AppCompatActivity {
                 menuFab.collapse();
             }
         });
-
     }
 }
