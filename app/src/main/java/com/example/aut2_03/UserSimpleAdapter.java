@@ -38,8 +38,8 @@ public class UserSimpleAdapter extends RecyclerView.Adapter<UserRowView> {
             @Override
             public void onClick(View view) {
                 Toast.makeText(view.getContext(), item.getName(), Toast.LENGTH_SHORT).show();
-                MainActivity.db.removeUser(item.getName());
-                MainActivity.adapter.notifyDataSetChanged();
+                DataBaseFragment.db.removeUser(item.getName());
+                DataBaseFragment.adapter.notifyDataSetChanged();
             }
         });
     }
