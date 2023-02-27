@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,9 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DataBaseFragment extends Fragment {
 
-    public static DataBaseHandler db;
+    public static UsersDBHandler db;
     public static UserSimpleAdapter adapter;
 
     @Nullable
@@ -30,13 +32,19 @@ public class DataBaseFragment extends Fragment {
 
         RecyclerView recyclerView = view.findViewById(R.id.dataBaseItems);
 
-        db = new DataBaseHandler(this.getContext());
+        db = new UsersDBHandler(this.getContext());
         db.insertData("alejandro@gmail.com","ale");
         db.insertData("fran@gmail.com","fran");
         db.insertData("juan@gmail.com","juan");
         db.insertData("test@gmail.com","test");
 
-        adapter = new UserSimpleAdapter(db.getUsers());
+        List<User> users = new ArrayList<>();
+
+        for(int i = 0; i < 100; i++){
+            users.add(new User("tets","wdqdwq"));
+        }
+
+        adapter = new UserSimpleAdapter(users);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
@@ -47,14 +55,18 @@ public class DataBaseFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Toast.makeText(view.getContext(), "hola", Toast.LENGTH_SHORT).show();
+                /*
                 LinearLayout con = container.findViewById(R.id.nav_1_container);
-                View newLayout = LayoutInflater.from(DataBaseFragment.this.getContext()).inflate(R.layout.database_insert_view, con, false);
+                View newLayout = LayoutInflater.from(DataBaseFragment.this.getContext()).inflate(R.layout.database_insert_user_view, con, false);
                 con.removeViewAt(0);
                 con.addView(newLayout);
+
+                 */
                 menuFab.collapse();
             }
         });
 
         return view;
     }
+
 }

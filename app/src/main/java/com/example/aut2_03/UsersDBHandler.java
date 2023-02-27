@@ -11,11 +11,11 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataBaseHandler extends SQLiteOpenHelper {
+public class UsersDBHandler extends SQLiteOpenHelper {
 
     public static final String DBNAME = "users.db";
 
-    public DataBaseHandler(@Nullable Context context) {
+    public UsersDBHandler(@Nullable Context context) {
         super(context, DBNAME, null,1);
 
     }

@@ -16,6 +16,7 @@ public class UserSimpleAdapter extends RecyclerView.Adapter<UserRowView> {
     private List<User> itemList;
 
     public UserSimpleAdapter(List<User> itemList) {
+        super();
         this.itemList = itemList;
     }
 
@@ -34,14 +35,19 @@ public class UserSimpleAdapter extends RecyclerView.Adapter<UserRowView> {
         holder.nameText.setText(item.getName());
         holder.emailText.setText(item.getEmail());
 
-        holder.itemView.findViewById(R.id.remove).setOnClickListener(new View.OnClickListener() {
+        holder.itemView.findViewById(R.id.remove).setOnClickListener(new myOnclickListener(position) {
             @Override
             public void onClick(View view) {
                 Toast.makeText(view.getContext(), item.getName(), Toast.LENGTH_SHORT).show();
                 DataBaseFragment.db.removeUser(item.getName());
-                DataBaseFragment.adapter.notifyDataSetChanged();
+                removeAt(this.pos);
             }
         });
+    }
+    public void removeAt(int position) {
+        itemList.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, itemList.size());
     }
 
     @Override
