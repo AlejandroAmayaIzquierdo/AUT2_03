@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.RecycleContainer,new DataBaseFragment()).commit();
                 break;
             case R.id.nav_2:
-
                 break;
         }
 

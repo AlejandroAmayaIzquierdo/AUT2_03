@@ -11,13 +11,13 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsersDBHandler extends SQLiteOpenHelper {
+public class DataBaseHandler extends SQLiteOpenHelper {
 
-    public static final String DBNAME = "users.db";
+    public static final String DBNAME = "sandBox.db";
+    public static final String GAMES_TABLE = "games";
 
-    public UsersDBHandler(@Nullable Context context) {
+    public DataBaseHandler(@Nullable Context context) {
         super(context, DBNAME, null,1);
-
     }
 
     @Override
@@ -28,61 +28,60 @@ public class UsersDBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create Table users(email TEXT primary key,name TEXT)");
+        db.execSQL("create Table games(name TEXT primary key,developer TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        db.execSQL("drop table if exists users");
+        db.execSQL("drop table if exists games");
         onCreate(db);
     }
 
-    public Boolean insertData(String email,String userName){
+    public Boolean insertData(String name,String developer){
         SQLiteDatabase mydb = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("email",email);
-        contentValues.put("name",userName);
-        long result = mydb.insert("users",null,contentValues);
+        contentValues.put("name",name);
+        contentValues.put("developer",developer);
+        long result = mydb.insert(GAMES_TABLE,null,contentValues);
         if(result == 1)
             return true;
 
         return false;
     }
 
-    public User getUser(String email){
+    public Games getGame(String name){
         SQLiteDatabase mydb = this.getWritableDatabase();
-        Cursor cursor = mydb.rawQuery("select * from users where email = ?",new String[]{email});
-
+        Cursor cursor = mydb.rawQuery("select * from games where name = ?",new String[]{name});
 
         if(cursor.moveToFirst()){
-            User user = new User();
-            user.setEmail(cursor.getString(0));
-            user.setName(cursor.getString(1));
+            Games game = new Games();
+            game.setName(cursor.getString(0));
+            game.setDeveloper(cursor.getString(1));
 
-            return user;
+            return game;
         }
 
         return null;
     }
-    public List<User> getUsers(){
+    public List<Games> getUsers(){
         SQLiteDatabase mydb = this.getWritableDatabase();
-        Cursor cursor = mydb.query("users",null,null,null,null,null,null);
+        Cursor cursor = mydb.query(GAMES_TABLE,null,null,null,null,null,null);
 
-        List<User> users = new ArrayList<>();
+        List<Games> games = new ArrayList<>();
         while(cursor.moveToNext()){
-            User user = new User();
+            Games user = new Games();
             user.setName(cursor.getString(0));
-            user.setEmail(cursor.getString(1));
+            user.setDeveloper(cursor.getString(1));
 
-            users.add(user);
+            games.add(user);
         }
 
-        return users;
+        return games;
     }
 
     public boolean removeUser(String email){
         SQLiteDatabase mydb = this.getWritableDatabase();
-        long result = mydb.delete("users","email = ?",new String[]{email});
+        long result = mydb.delete(GAMES_TABLE,"name = ?",new String[]{email});
         if(result > 0){
             return true;
         }

@@ -1,6 +1,5 @@
 package com.example.aut2_03;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +12,9 @@ import java.util.List;
 
 public class UserSimpleAdapter extends RecyclerView.Adapter<UserRowView> {
 
-    private List<User> itemList;
+    private List<Games> itemList;
 
-    public UserSimpleAdapter(List<User> itemList) {
+    public UserSimpleAdapter(List<Games> itemList) {
         super();
         this.itemList = itemList;
     }
@@ -31,9 +30,9 @@ public class UserSimpleAdapter extends RecyclerView.Adapter<UserRowView> {
 
     @Override
     public void onBindViewHolder(@NonNull UserRowView holder, int position) {
-        User item = itemList.get(position);
+        Games item = itemList.get(position);
         holder.nameText.setText(item.getName());
-        holder.emailText.setText(item.getEmail());
+        holder.emailText.setText(item.getDeveloper());
 
         holder.itemView.findViewById(R.id.remove).setOnClickListener(new myOnclickListener(position) {
             @Override

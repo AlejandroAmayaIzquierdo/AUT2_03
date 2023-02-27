@@ -21,7 +21,7 @@ import java.util.List;
 
 public class DataBaseFragment extends Fragment {
 
-    public static UsersDBHandler db;
+    public static DataBaseHandler db;
     public static UserSimpleAdapter adapter;
 
     @Nullable
@@ -32,16 +32,16 @@ public class DataBaseFragment extends Fragment {
 
         RecyclerView recyclerView = view.findViewById(R.id.dataBaseItems);
 
-        db = new UsersDBHandler(this.getContext());
+        db = new DataBaseHandler(this.getContext());
         db.insertData("alejandro@gmail.com","ale");
         db.insertData("fran@gmail.com","fran");
         db.insertData("juan@gmail.com","juan");
         db.insertData("test@gmail.com","test");
 
-        List<User> users = new ArrayList<>();
+        List<Games> users = new ArrayList<>();
 
         for(int i = 0; i < 100; i++){
-            users.add(new User("tets","wdqdwq"));
+            users.add(new Games("tets","wdqdwq"));
         }
 
         adapter = new UserSimpleAdapter(users);
