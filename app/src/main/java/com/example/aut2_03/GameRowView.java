@@ -6,12 +6,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class UserRowView extends RecyclerView.ViewHolder {
+public class GameRowView extends RecyclerView.ViewHolder {
 
     public TextView nameText;
     public TextView emailText;
 
-    public UserRowView(@NonNull View itemView) {
+    public GameRowView(@NonNull View itemView) {
         super(itemView);
 
         nameText = itemView.findViewById(R.id.name);

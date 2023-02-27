@@ -24,10 +24,10 @@
             android:elevation="4dp">
         </androidx.appcompat.widget.Toolbar>
         <include
-            android:id="@+id/RecycleContainer"
+            android:id="@+id/FragmentContainer"
             layout="@layout/databaseview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView

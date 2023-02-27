@@ -10,27 +10,27 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class UserSimpleAdapter extends RecyclerView.Adapter<UserRowView> {
+public class GameSimpleAdapter extends RecyclerView.Adapter<GameRowView> {
 
-    private List<Games> itemList;
+    private List<Game> itemList;
 
-    public UserSimpleAdapter(List<Games> itemList) {
+    public GameSimpleAdapter(List<Game> itemList) {
         super();
         this.itemList = itemList;
     }
 
     @NonNull
     @Override
-    public UserRowView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public GameRowView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_row, parent, false);
 
-        return new UserRowView(itemView);
+        return new GameRowView(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull UserRowView holder, int position) {
-        Games item = itemList.get(position);
+    public void onBindViewHolder(@NonNull GameRowView holder, int position) {
+        Game item = itemList.get(position);
         holder.nameText.setText(item.getName());
         holder.emailText.setText(item.getDeveloper());
 
@@ -38,7 +38,7 @@ public class UserSimpleAdapter extends RecyclerView.Adapter<UserRowView> {
             @Override
             public void onClick(View view) {
                 Toast.makeText(view.getContext(), item.getName(), Toast.LENGTH_SHORT).show();
-                DataBaseFragment.db.removeUser(item.getName());
+                DataBaseFragment.db.removeGame(item.getName());
                 removeAt(this.pos);
             }
         });

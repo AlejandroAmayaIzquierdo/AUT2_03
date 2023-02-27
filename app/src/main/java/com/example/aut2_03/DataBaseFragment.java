@@ -22,7 +22,7 @@ import java.util.List;
 public class DataBaseFragment extends Fragment {
 
     public static DataBaseHandler db;
-    public static UserSimpleAdapter adapter;
+    public static GameSimpleAdapter adapter;
 
     @Nullable
     @Override
@@ -33,18 +33,8 @@ public class DataBaseFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.dataBaseItems);
 
         db = new DataBaseHandler(this.getContext());
-        db.insertData("alejandro@gmail.com","ale");
-        db.insertData("fran@gmail.com","fran");
-        db.insertData("juan@gmail.com","juan");
-        db.insertData("test@gmail.com","test");
 
-        List<Games> users = new ArrayList<>();
-
-        for(int i = 0; i < 100; i++){
-            users.add(new Games("tets","wdqdwq"));
-        }
-
-        adapter = new UserSimpleAdapter(users);
+        adapter = new GameSimpleAdapter(db.getGames());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
