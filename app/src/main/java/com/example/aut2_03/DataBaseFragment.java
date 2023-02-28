@@ -34,6 +34,8 @@ public class DataBaseFragment extends Fragment {
 
         db = new DataBaseHandler(this.getContext());
 
+        db.insertData("Skyrim","beteshda",R.drawable.user);
+
         adapter = new GameSimpleAdapter(db.getGames());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));

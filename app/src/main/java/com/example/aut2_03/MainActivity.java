@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.FragmentContainer,new ViewDBFragment()).commit();
                 break;
             default:
+                getSupportFragmentManager().beginTransaction().replace(R.id.FragmentContainer,new MicrophoneFragment()).commit();
                 break;
         }
 
