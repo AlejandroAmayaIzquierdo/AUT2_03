@@ -5,19 +5,26 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.net.Uri;
 
 import androidx.annotation.Nullable;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DataBaseHandler extends SQLiteOpenHelper {
 
-    public static final String DBNAME = "sandBox1.db";
+    public static final String DBNAME = "myGames.db";
     public static final String GAMES_TABLE = "games";
 
+    private Context context;
+
     public DataBaseHandler(@Nullable Context context) {
-        super(context, DBNAME, null,1);
+        super(context, DBNAME, null, 1);
+        context = context;
     }
 
     @Override
@@ -28,53 +35,53 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create Table games(name TEXT primary key,developer TEXT,image INTEGER)");
+        db.execSQL("CREATE TABLE games (name TEXT PRIMARY KEY, developer TEXT, image BLOB)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        db.execSQL("drop table if exists games");
+        db.execSQL("DROP TABLE IF EXISTS games");
         onCreate(db);
     }
 
-    public Boolean insertData(String name,String developer,Integer image){
+    public boolean insertData(String name, String developer, byte[] imageBytes) {
         SQLiteDatabase mydb = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("name",name);
-        contentValues.put("developer",developer);
-        contentValues.put("image",image);
-        long result = mydb.insert(GAMES_TABLE,null,contentValues);
-        if(result == 1)
-            return true;
 
-        return false;
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("name", name);
+        contentValues.put("developer", developer);
+        contentValues.put("image", imageBytes);
+        long result = mydb.insert(GAMES_TABLE, null, contentValues);
+
+        return result != -1;
     }
 
-    public Game getGame(String name){
+    public Game getGame(String name) {
         SQLiteDatabase mydb = this.getWritableDatabase();
-        Cursor cursor = mydb.rawQuery("select * from games where name = ?",new String[]{name});
+        Cursor cursor = mydb.rawQuery("SELECT * FROM games WHERE name = ?", new String[]{name});
 
-        if(cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             Game game = new Game();
             game.setName(cursor.getString(0));
             game.setDeveloper(cursor.getString(1));
-            game.setImage(cursor.getInt(2));
+            game.setImage(cursor.getBlob(2));
 
             return game;
         }
 
         return null;
     }
-    public List<Game> getGames(){
+
+    public List<Game> getGames() {
         SQLiteDatabase mydb = this.getWritableDatabase();
-        Cursor cursor = mydb.query("games",null,null,null,null,null,null);
+        Cursor cursor = mydb.query("games", null, null, null, null, null, null);
 
         List<Game> games = new ArrayList<>();
-        while(cursor.moveToNext()){
+        while (cursor.moveToNext()) {
             Game toAdd = new Game();
             toAdd.setName(cursor.getString(0));
             toAdd.setDeveloper(cursor.getString(1));
-            toAdd.setImage(cursor.getInt(2));
+            toAdd.setImage(cursor.getBlob(2));
 
             games.add(toAdd);
         }
@@ -82,13 +89,9 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         return games;
     }
 
-    public boolean removeGame(String name){
+    public boolean removeGame(String name) {
         SQLiteDatabase mydb = this.getWritableDatabase();
-        long result = mydb.delete("games","name = ?",new String[]{name});
-        if(result > 0){
-            return true;
-        }
-
-        return false;
+        long result = mydb.delete("games", "name = ?", new String[]{name});
+        return result > 0;
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -25,7 +26,7 @@
             android:textAllCaps="true"/>
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/editTextTextGameName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -52,7 +53,7 @@
             android:textAllCaps="true"/>
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/editTextTextDeveloperName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -61,11 +62,37 @@
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
             android:autofillHints="" />
 
+
+
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/ImageSelected"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/noimagea"
+            android:layout_margin="@dimen/fab_labels_margin"
+            android:scaleType="centerCrop"
+            android:contentDescription="TODO" />
+        <Button
+            android:id="@+id/selectGameImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="image Selection"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+
 
     <Button
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/add" />
+
+
 </LinearLayout>

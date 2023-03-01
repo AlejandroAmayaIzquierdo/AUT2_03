@@ -23,7 +23,7 @@
             android:theme="@style/MyAppBarOverlay"
             android:elevation="4dp">
         </androidx.appcompat.widget.Toolbar>
-        <include
+        <FrameLayout
             android:id="@+id/FragmentContainer"
             layout="@layout/databaseview"
             android:layout_width="match_parent"

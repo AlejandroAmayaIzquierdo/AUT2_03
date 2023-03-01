@@ -1,6 +1,8 @@
 package com.example.aut2_03;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +33,9 @@ public class GameAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.game_view, null);
         }
         ImageView image = convertView.findViewById(R.id.gameView_image);
-        image.setImageResource(items.get(position).getImage());
+        byte[] byteArray = items.get(position).getImage();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+        image.setImageBitmap(bitmap);
 
         TextView text = convertView.findViewById(R.id.gameView_name);
         text.setText(items.get(position).getName());

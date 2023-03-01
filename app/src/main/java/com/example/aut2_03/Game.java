@@ -1,17 +1,19 @@
 package com.example.aut2_03;
 
+import android.graphics.Bitmap;
+
 public class Game {
     private String name;
     private String developer;
 
-    private Integer image;
+    private byte[] image;
     public Game() {
     }
     public Game(String name, String developer) {
         this.name = name;
         this.developer = developer;
     }
-    public Game(String name, String developer, Integer image) {
+    public Game(String name, String developer, byte[] image) {
         this.name = name;
         this.developer = developer;
         this.image = image;
@@ -34,7 +36,7 @@ public class Game {
         this.developer = developer;
     }
 
-    public Integer getImage() {return image;}
+    public byte[] getImage() {return image;}
 
-    public void setImage(Integer image) {this.image = image;}
+    public void setImage(byte[] image) {this.image = image;}
 }
