@@ -4,11 +4,13 @@
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
         <item android:id="@+id/nav_1"
-            android:title="primerFragement"/>
+            android:title="Db manager"/>
         <item android:id="@+id/nav_2"
-            android:title="secondFragement"/>
+            android:title="Db View"/>
         <item android:id="@+id/nav_3"
-            android:title="thirdFragement"/>
+            android:title="Grabadora de Audio"/>
+        <item android:id="@+id/nav_4"
+            android:title="Cuarta Actividad"/>
     </group>
 
     <item android:title="communicate">
