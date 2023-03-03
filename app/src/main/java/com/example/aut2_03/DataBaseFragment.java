@@ -77,9 +77,9 @@ public class DataBaseFragment extends Fragment {
         EditText name = view.findViewById(R.id.editTextTextGameName);
         EditText developer = view.findViewById(R.id.editTextTextDeveloperName);
 
-        Button addButton = view.findViewById(R.id.button2);
+        FloatingActionButton floatingActionButton = view.findViewById(R.id.fab_games);
 
-        addButton.setOnClickListener(new View.OnClickListener() {
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (selectedImage == null) {
@@ -100,6 +100,8 @@ public class DataBaseFragment extends Fragment {
                 }
             }
         });
+
+
 
 
 
