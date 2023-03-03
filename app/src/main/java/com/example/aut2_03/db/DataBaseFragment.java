@@ -1,9 +1,8 @@
-package com.example.aut2_03;
+package com.example.aut2_03.db;
 
 
 import static android.app.Activity.RESULT_OK;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -17,23 +16,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.aut2_03.GameSimpleAdapter;
+import com.example.aut2_03.R;
 import com.getbase.floatingactionbutton.FloatingActionButton;
-import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class DataBaseFragment extends Fragment {
 

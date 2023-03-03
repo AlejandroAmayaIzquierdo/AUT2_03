@@ -18,4 +18,11 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <style name="splashTheme" parent="Theme.AUT2_03.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="android:statusBarColor">@color/purple_200</item>
+    </style>
 </resources>

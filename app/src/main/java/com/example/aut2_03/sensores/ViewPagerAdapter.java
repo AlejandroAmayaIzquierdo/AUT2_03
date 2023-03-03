@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.aut2_03.sensores.battery.BatteryFragment;
+import com.example.aut2_03.sensores.location.LocationFragment;
 import com.example.aut2_03.sensores.luz.LuzAmbienteFragment;
 import com.example.aut2_03.sensores.resolution.ResolutionFragment;
 
@@ -26,6 +27,8 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
                 return new BatteryFragment();
             case 2:
                 return new LuzAmbienteFragment();
+            case 3:
+                return new LocationFragment();
             default:
                 return new ResolutionFragment();
         }

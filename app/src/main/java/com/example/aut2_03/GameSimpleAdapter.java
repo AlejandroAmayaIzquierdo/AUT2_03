@@ -8,6 +8,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.aut2_03.db.DataBaseFragment;
+import com.example.aut2_03.db.GameRowView;
+
 import java.util.List;
 
 public class GameSimpleAdapter extends RecyclerView.Adapter<GameRowView> {
