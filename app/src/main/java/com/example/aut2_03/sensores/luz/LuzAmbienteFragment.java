@@ -1,6 +1,8 @@
 package com.example.aut2_03.sensores.luz;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.aut2_03.R;
@@ -43,7 +46,6 @@ public class LuzAmbienteFragment extends Fragment {
 
         @Override
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
-            // No se utiliza en este ejemplo
         }
     };
 
@@ -57,6 +59,7 @@ public class LuzAmbienteFragment extends Fragment {
         textView = view.findViewById(R.id.light_TextView);
 
         sensorManager = (SensorManager) this.getActivity().getSystemService(Context.SENSOR_SERVICE);
+        ActivityCompat.requestPermissions(this.getActivity(), new String[]{Manifest.permission.BODY_SENSORS}, 1);
         lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
 
         return view;

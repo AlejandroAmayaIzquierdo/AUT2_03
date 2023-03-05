@@ -1,4 +1,4 @@
-package com.example.aut2_03;
+package com.example.aut2_03.db;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -9,9 +9,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.recyclerview.widget.RecyclerView;
+import com.example.aut2_03.R;
 
 import java.util.List;
 

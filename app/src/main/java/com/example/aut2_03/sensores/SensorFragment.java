@@ -1,4 +1,4 @@
-package com.example.aut2_03;
+package com.example.aut2_03.sensores;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.aut2_03.R;
 import com.example.aut2_03.sensores.ViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 

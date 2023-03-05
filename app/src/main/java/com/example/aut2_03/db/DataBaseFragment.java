@@ -22,7 +22,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.aut2_03.GameSimpleAdapter;
 import com.example.aut2_03.R;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 

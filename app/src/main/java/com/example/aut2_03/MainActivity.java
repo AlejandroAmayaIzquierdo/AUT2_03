@@ -11,6 +11,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.aut2_03.db.DataBaseFragment;
+import com.example.aut2_03.db.ViewDBFragment;
+import com.example.aut2_03.microphone.MicrophoneFragment;
+import com.example.aut2_03.sensores.SensorFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {

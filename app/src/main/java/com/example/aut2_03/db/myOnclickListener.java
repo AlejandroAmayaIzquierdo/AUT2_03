@@ -1,4 +1,4 @@
-package com.example.aut2_03;
+package com.example.aut2_03.db;
 
 import android.view.View;
 import android.widget.Toast;

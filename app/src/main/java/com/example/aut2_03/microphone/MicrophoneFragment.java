@@ -1,7 +1,6 @@
-package com.example.aut2_03;
+package com.example.aut2_03.microphone;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.ContextWrapper;
 import android.content.pm.PackageManager;
 import android.media.MediaRecorder;
@@ -11,7 +10,6 @@ import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +19,8 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+
+import com.example.aut2_03.R;
 
 import java.io.File;
 
@@ -113,7 +113,7 @@ public class MicrophoneFragment extends Fragment {
             play = false;
             this.counterTime.stopThread();
             playButton.setImageResource(R.drawable.play_button);
-            Toast.makeText(MicrophoneFragment.this.getContext(), "Recording Stopped", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MicrophoneFragment.this.getContext(), "Recording Stopped " + getRecordingFilePath(), Toast.LENGTH_SHORT).show();
 
         }
     }

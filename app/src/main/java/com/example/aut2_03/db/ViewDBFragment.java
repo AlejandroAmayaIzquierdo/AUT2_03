@@ -1,4 +1,4 @@
-package com.example.aut2_03;
+package com.example.aut2_03.db;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,9 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.aut2_03.GameAdapter;
 import com.example.aut2_03.R;
-import com.example.aut2_03.db.DataBaseFragment;
 
 public class ViewDBFragment extends Fragment {
 

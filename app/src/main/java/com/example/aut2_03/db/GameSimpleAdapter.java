@@ -1,4 +1,4 @@
-package com.example.aut2_03;
+package com.example.aut2_03.db;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,8 +8,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.aut2_03.db.DataBaseFragment;
-import com.example.aut2_03.db.GameRowView;
+import com.example.aut2_03.R;
 
 import java.util.List;
 
